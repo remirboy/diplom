@@ -43,6 +43,18 @@ public class JavaFileWriter {
         Path helperPath = Paths.get(fileHelpers);
         Path testPath = Paths.get(fileTests);
 
+        if (!Files.exists(modelPath))
+            Files.createDirectories(modelPath);
+
+        if (!Files.exists(pagePath))
+            Files.createDirectories(pagePath);
+
+        if (!Files.exists(helperPath))
+            Files.createDirectories(helperPath);
+
+        if (!Files.exists(testPath))
+            Files.createDirectories(testPath);
+
         if (!Files.exists(path)) {
             Files.createDirectory(path);
 

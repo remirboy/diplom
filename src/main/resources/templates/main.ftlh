@@ -14,7 +14,7 @@
     <ul>
         <li> <a href="/model/modelGeneration">Сгенерировать модель</a></li>
         <li> <a href="/pageObject" target="_blank">Сгенерировать страницу</a></li>
-        <li> <a href="" target="_blank">Сгенерировать тест</a></li>
+        <li> <a href="/test" target="_blank">Сгенерировать тест</a></li>
         <li> <a href="/helper" target="_blank">Сгенерировать Helper</a></li>
         <li> <a href="/applicationManager" target="_blank">Сгенерировать Application Manager</a></button></li>
     </ul>
