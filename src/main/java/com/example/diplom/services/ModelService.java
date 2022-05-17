@@ -4,11 +4,13 @@ import com.example.diplom.dto.AttributetsDTO;
 import com.example.diplom.dto.ModelDTO;
 import com.example.diplom.models.Attribute;
 import com.example.diplom.models.Model;
+import com.example.diplom.utils.JavaFileWriter;
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 import org.springframework.stereotype.Component;
 import lombok.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 @Component
@@ -65,6 +67,14 @@ public class ModelService {
         }
 
         System.out.println(javaClass);
+
+        try {
+            JavaFileWriter writer = new JavaFileWriter();
+            writer.writeJavaCodeToJavaFile(javaClass.toString(),model.getName(),"models");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
 //        javaClass.addMethod()
 //                .setConstructor(true)

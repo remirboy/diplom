@@ -1,12 +1,17 @@
 package com.example.diplom.services;
 
 import com.example.diplom.dto.ApplicationManagerDTO;
+import com.example.diplom.utils.JavaFileWriter;
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ApplicationManagerService {
+
+    private static String APPLICATION_MANAGER = "ApplicationManager";
 
     public void generateApplicationManagerClass(ApplicationManagerDTO managerDTO){
         generateCode(managerDTO);
@@ -40,7 +45,16 @@ public class ApplicationManagerService {
                         "webDriver.get(baseUrl);\n"
                         );
 
-        System.out.println(javaClass);
+
+
+        try {
+            JavaFileWriter writer = new JavaFileWriter();
+            writer.writeJavaCodeToJavaFile(javaClass.toString(),APPLICATION_MANAGER,"root");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     private String chooseBrowser(ApplicationManagerDTO managerDTO){

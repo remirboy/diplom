@@ -1,11 +1,16 @@
 package com.example.diplom.services;
 
+import com.example.diplom.utils.JavaFileWriter;
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class HelperService {
+
+    private static String BASE_HELPER = "BaseHelper";
 
     public void generateBaseHelperClass(){
         generateCode();
@@ -28,6 +33,13 @@ public class HelperService {
                 .setPublic()
                 .addParameter("ApplicatonManager","app");
 
-        System.out.println(javaClass);
+        try {
+            JavaFileWriter writer = new JavaFileWriter();
+            writer.writeJavaCodeToJavaFile(javaClass.toString(), BASE_HELPER,"helpers");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

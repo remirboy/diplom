@@ -3,10 +3,12 @@ package com.example.diplom.services;
 import com.example.diplom.dto.MainPageObjectDTO;
 import com.example.diplom.dto.PageObjectDTO;
 import com.example.diplom.models.*;
+import com.example.diplom.utils.JavaFileWriter;
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -77,6 +79,13 @@ public class PageService {
 
         System.out.println(javaClass);
 
+        try {
+            JavaFileWriter writer = new JavaFileWriter();
+            writer.writeJavaCodeToJavaFile(javaClass.toString(),pageObject.getName(),"pages");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 //        javaClass.addMethod()
 //                .setConstructor(true)
 //                .setPublic()
@@ -156,6 +165,14 @@ public class PageService {
                         ) ;
 
         System.out.println(javaClass);
+
+        try {
+            JavaFileWriter writer = new JavaFileWriter();
+            writer.writeJavaCodeToJavaFile(javaClass.toString(),MainPageName,"pages");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
