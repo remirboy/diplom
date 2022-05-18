@@ -12,7 +12,7 @@
 <body>
 <div class="main">
     <form action="/helper/baseHelperGeneration/create" method="post">
-    <div class="page_name">
+    <div class="helper_name">
         <button type="submit">Сгенерировать Base Helper</button>
     </div>
     </form>

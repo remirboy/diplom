@@ -12,7 +12,7 @@
 <body>
 <div class="main">
     <form action="/test/mainTest/create" method="post">
-        <div class="page_name">
+        <div class="test_name">
             <button type="submit">Сгенерировать Base Test</button>
         </div>
     </form>

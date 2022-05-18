@@ -20,7 +20,7 @@ public class ApplicationManagerService {
     private void generateCode(ApplicationManagerDTO managerDTO){
 
         final JavaClassSource javaClass = Roaster.create(JavaClassSource.class);
-        javaClass.setName("ApplicationManager");
+        javaClass.setName("ApplicationManager").setPackage("output");
         javaClass.addImport("org.openqa.*");
 
         javaClass.addField()

@@ -18,7 +18,7 @@ public class TestService {
 
     private void generateBaseTestCode() {
         final JavaClassSource javaClass = Roaster.create(JavaClassSource.class);
-        javaClass.setName(BASE_TEST);
+        javaClass.setName(BASE_TEST).setPackage("output.tests");
 
         javaClass.addImport("org.junit.Before");
 

@@ -2,6 +2,8 @@ package com.example.diplom.controllers;
 
 import com.example.diplom.dto.ApplicationManagerDTO;
 
+import com.example.diplom.dto.HelperDTO;
+import com.example.diplom.dto.ModelDTO;
 import com.example.diplom.services.HelperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 
 @Controller
 public class HelperController {
@@ -25,9 +26,7 @@ public class HelperController {
     }
 
     @GetMapping("/helper/baseHelperGeneration")
-    public String getBaseHelperPage(Model model) {
-        ApplicationManagerDTO managerDTO = new ApplicationManagerDTO();
-        model.addAttribute("ApplicationManagerDTO", managerDTO);
+    public String getBaseHelperPage() {
         return "base_helper_class_generation";
     }
 
@@ -37,9 +36,17 @@ public class HelperController {
         return "main";
     }
 
-//    @PostMapping("/pageObject/baseHelperGeneration/create")
-//    public String createMainPageGenerationPage(@ModelAttribute("page_main_class_generation") MainPageObjectDTO mainPageObjectDTO) {
-//        pageService.generateMainPageObject(mainPageObjectDTO);
-//        return "main";
-//    }
+    @GetMapping("/helper/helperGeneration")
+    public String getHelperPage(Model model) {
+        HelperDTO helperDTO = new HelperDTO();
+        model.addAttribute("helperDTO", helperDTO);
+        return "helper_generation";
+    }
+
+    @PostMapping("/helper/helperGeneration/create")
+    public String generateHelperPage(@ModelAttribute("helper_generation") HelperDTO helperDTO) {
+        helperService.generateHelperClass(helperDTO);
+        return "main";
+    }
+
 }

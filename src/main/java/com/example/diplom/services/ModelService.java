@@ -59,7 +59,7 @@ public class ModelService {
 
     private void generateCode(Model model){
         final JavaClassSource javaClass = Roaster.create(JavaClassSource.class);
-        javaClass.setPackage("com.company.example").setName(model.getName());
+        javaClass.setPackage("output.models").setName(model.getName());
 
         System.out.println(model.getAttributes().toString());
         for (Attribute attribute:model.getAttributes()){

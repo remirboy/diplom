@@ -37,7 +37,7 @@ public class PageService {
     private void generatePageObjectCode(PageObject pageObject){
 
         final JavaClassSource javaClass = Roaster.create(JavaClassSource.class);
-        javaClass.setPackage("com.company.example").setName(pageObject.getName());
+        javaClass.setPackage("output.pages").setName(pageObject.getName());
         javaClass.setSuperType(MainPageName);
         javaClass.addImport("org.openqa.selenium.*");
 
@@ -138,7 +138,7 @@ public class PageService {
 
     private void generateMainPageObjectCode(String wait){
         final JavaClassSource javaClass = Roaster.create(JavaClassSource.class);
-        javaClass.setName(MainPageName);
+        javaClass.setName(MainPageName).setPackage("output.pages");
         javaClass.addImport("org.openqa.selenium.support.ui.WebDriverWait");
 
         javaClass.addProperty("WebDriver", "webDriver");

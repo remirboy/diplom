@@ -13,7 +13,7 @@
 <div class="main">
     <ul>
         <li> <a href="/helper/baseHelperGeneration">Сгенерировать родительский класс</a></li>
-        <li> <a href="/helper/">Сгенерировать новый  Helper</a></li>
+        <li> <a href="/helper/helperGeneration">Сгенерировать новый  Helper</a></li>
     </ul>
 
 </div>
