@@ -12,19 +12,29 @@
 </head>
 <body>
 <div class="main">
-    <form action="/helper/helperGeneration/create" method="post">
+    <form action="/test/testSuite/create" method="post">
         <div class="page_name">
-            <label>Название Helper<@spring.formInput "helperDTO.name"/></label>
+            <label>Название Тест-сьюта<@spring.formInput "testSuiteDTO.name"/></label>
         </div>
         <div class="pages_elements">
-            <div class="page_element">
-                <label>Шаг 1<input name="variable_name"></label>
-            </div>
-            <div class="page_element">
-                <label>Шаг 2<input name="variable_name"></label>
-            </div>
-            <div class="page_element">
-                <label>Шаг 3<input name="variable_name"></label>
+                <label>Тест-кейс 1<input name="tests[0].name"></label>
+                <ul>
+                    <li><label>Проверка 1<input name="tests[0].checks[0]"></label></li>
+
+                    <li><label>Проверка 2<input name="tests[0].checks[1]"></label></li>
+
+                    <li><label>Проверка 3<input name="tests[0].checks[2]"></label></li>
+                </ul>
+
+                <label>Тест-кейс 2<input name="tests[1].name"></label>
+
+                <ul>
+                    <li><label>Проверка 1<input name="tests[1].checks[0]"></label></li>
+
+                    <li><label>Проверка 2<input name="tests[1].checks[1]"></label></li>
+
+                    <li><label>Проверка 3<input name="tests[1].checks[2]"></label></li>
+                </ul>
             </div>
             <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
             <button>Сгенерировать Helper</button>

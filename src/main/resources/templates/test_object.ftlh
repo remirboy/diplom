@@ -13,7 +13,7 @@
 <div class="main">
     <ul>
         <li> <a href="/test/mainTest">Сгенерировать родительский класс</a></li>
-        <li> <a href="/">Сгенерировать новый Тест</a></li>
+        <li> <a href="/test/testSuite">Сгенерировать новый Тест</a></li>
     </ul>
 </div>
 </body>
