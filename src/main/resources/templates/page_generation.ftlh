@@ -39,6 +39,8 @@
                 </select>
                 </label> 
                 <label>Локатор<input name="variable_name"></label>
+                <label>Имя веб-элемента<input name="variable_name"></label>
+
             </div>
             <div class="page_element">
                 <label> Тип локатора
@@ -62,7 +64,9 @@
             </select>
             </label> 
             <label>Локатор<input name="variable_name"></label>
-        </div>
+                <label>Имя веб-элемента<input name="variable_name"></label>
+
+            </div>
         <div class="page_element">
             <label> Тип локатора
             <select name="page_element_locator">
@@ -85,9 +89,11 @@
         </select>
         </label> 
         <label>Локатор<input name="variable_name"></label>
-    </div>
+        <label>Имя веб-элемента<input name="variable_name"></label>
+
+        </div>
         <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
-        <button>Сгенерировать модель</button>
+        <button>Сгенерировать страницу</button>
 
     </div>
 

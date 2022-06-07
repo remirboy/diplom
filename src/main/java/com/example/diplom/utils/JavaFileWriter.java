@@ -77,7 +77,6 @@ public class JavaFileWriter {
     }
 
     private String chooseDirectoryToWrite(String directory) throws IOException {
-
         String finalDirectory;
             switch (directory) {
                 case "models":

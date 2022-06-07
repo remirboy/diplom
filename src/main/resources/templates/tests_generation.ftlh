@@ -20,10 +20,10 @@
                 <label>Тест-кейс 1<input name="tests[0].name"></label>
                 <ul>
                     <li><label>Проверка 1<input name="tests[0].checks[0]"></label></li>
-
                     <li><label>Проверка 2<input name="tests[0].checks[1]"></label></li>
-
                     <li><label>Проверка 3<input name="tests[0].checks[2]"></label></li>
+                    <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
+
                 </ul>
 
                 <label>Тест-кейс 2<input name="tests[1].name"></label>
@@ -34,10 +34,12 @@
                     <li><label>Проверка 2<input name="tests[1].checks[1]"></label></li>
 
                     <li><label>Проверка 3<input name="tests[1].checks[2]"></label></li>
+                    <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
+
                 </ul>
             </div>
             <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
-            <button>Сгенерировать Helper</button>
+            <button>Сгенерировать тест</button>
         </div>
     </form>
 </div>

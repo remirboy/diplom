@@ -50,21 +50,21 @@ public class PageService {
             switch (webElement.getWebElementType()) {
                 case "button":
                     javaClass.addMethod().setName("click"+webElement.getLocator()+"button")
-                            .setBody("webDriver.findElement(\""+addLocatorPrefix(webElement)+webElement.getLocator()+"\").click();\n"+
+                            .setBody("webDriver.findElement("+webElement.getName()+").click();\n"+
                                      "return this;")
                             .setReturnType(pageObject.getName())
                             .setPublic();
                     break;
                 case "text":
                     javaClass.addMethod().setName("find"+webElement.getLocator())
-                            .setBody("webDriver.findElement(\""+addLocatorPrefix(webElement)+webElement.getLocator()+"\").click();\n"+
+                            .setBody("webDriver.findElement("+webElement.getName()+");\n"+
                                      "return this;")
                             .setReturnType(pageObject.getName())
                             .setPublic();
                     break;
                 case "input":
                     javaClass.addMethod().setName("typeDataIn"+webElement.getLocator())
-                            .setBody("webDriver.findElement(\""+addLocatorPrefix(webElement)+webElement.getLocator()+"\").clear().sendKeys(inputData);\n"+
+                            .setBody("webDriver.findElement("+webElement.getName()+").clear().sendKeys(inputData);\n"+
                                     "return this;")
                             .setReturnType(pageObject.getName())
                             .setParameters("String inputData")

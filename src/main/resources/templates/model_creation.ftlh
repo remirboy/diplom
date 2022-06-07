@@ -23,8 +23,6 @@
 
 <#--        <label> Тип атрибута модели-->
 
-            <#list attributesDTO as attribute>
-
 <#--            <select name="variable_type">-->
 <#--                    <option name="variable_type_int">Int</option>-->
 <#--                    <option name="variable_type_float">Float</option>-->
@@ -65,7 +63,6 @@
 <#--&lt;#&ndash;                &lt;#&ndash;                </select>&ndash;&gt;&ndash;&gt;-->
 <#--&lt;#&ndash;            </label>&ndash;&gt;-->
             <label>Имя атрибута<@spring.formInput "attribute.name"/></label>
-            </#list>
         </div>
 
         <button id="addNewAttribute" onclick="addNewAttributeInModel()">+</button>
