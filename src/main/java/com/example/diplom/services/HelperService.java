@@ -23,14 +23,14 @@ public class HelperService {
 
         ArrayList<String> steps = new ArrayList<String>();
 
-        steps.add("step1");
+        /*steps.add("step1");
         steps.add("step2");
         steps.add("step3");
-
+*/
 
         Helper helper = Helper.builder()
                 .name(helperDTO.getName())
-                .steps(steps)
+                .steps(helperDTO.getSteps())
                 .build();
 
         generateHelperCode(helper);

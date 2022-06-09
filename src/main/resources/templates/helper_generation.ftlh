@@ -19,7 +19,7 @@
         <#list steps as steps>
             <div class="pages_elements">
                 <div class="page_element">
-                    <label>Шаг ${steps?index+1} <input name="helpers.steps[${steps?index}]"></label>
+                    <label>Шаг ${steps?index+1} <input name="steps[${steps?index}]"></label>
                 </div>
             </div>
         </#list>
