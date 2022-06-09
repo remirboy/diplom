@@ -19,16 +19,16 @@ public class PageService {
 
     public void generatePageObject(PageObjectDTO form){
 
-        ArrayList<WebElement> webElements = new ArrayList<WebElement>();
+        /*ArrayList<WebElement> webElements = new ArrayList<WebElement>();
 
         webElements.add(new WebElement("object1","some_id","id","button"));
         webElements.add(new WebElement("object2","some_class","className","text"));
         webElements.add(new WebElement("object3","bodydivdiv","xPath","input"));
 
-
+*/
         PageObject pageObject = PageObject.builder()
                 .name(form.getName())
-                .elements(webElements)
+                .elements(form.getElements())
                 .build();
 
         generatePageObjectCode(pageObject);

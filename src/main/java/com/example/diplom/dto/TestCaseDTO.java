@@ -5,6 +5,7 @@ import com.example.diplom.models.TestSuite;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 @ToString
 public class TestCaseDTO {
     private String name;
-    private ArrayList<String> checks;
+    private List<String> checks;
 
     public static TestCaseDTO from(TestCase testCase) {
         return TestCaseDTO.builder()

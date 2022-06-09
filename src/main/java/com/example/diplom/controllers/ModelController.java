@@ -1,6 +1,8 @@
 package com.example.diplom.controllers;
 
 import com.example.diplom.dto.AttributetsDTO;
+import com.example.diplom.dto.HelperDTO;
+import com.example.diplom.models.Attribute;
 import org.springframework.ui.Model;
 import com.example.diplom.dto.ModelDTO;
 import com.example.diplom.services.ModelService;
@@ -19,23 +21,38 @@ public class ModelController {
     @Autowired
     private ModelService modelService;
 
+
+    private static ModelDTO models = new ModelDTO();
+
+    static {
+        ArrayList<Attribute> attributes = new ArrayList<>();
+        attributes.add(new Attribute());
+        attributes.add(new Attribute());
+        attributes.add(new Attribute());
+
+        models.setAttributes(attributes);
+
+    }
+    @PostMapping("/attribute/add")
+    public String attributeAdd(Model model) {
+        models.getAttributes().add(new Attribute());
+        return "redirect:/model/modelGeneration";
+    }
+
+    @PostMapping("/attribute/delete")
+    public String attributeDelete(Model model) {
+        models.getAttributes().remove(models.getAttributes().size() - 1);
+        return "redirect:/model/modelGeneration";
+    }
     @GetMapping("/model/modelGeneration")
     public String getPageGenerationPage(Model model) {
         ModelDTO modelDTO = new ModelDTO();
         ArrayList<AttributetsDTO> attributesDTO = new ArrayList<>();
-        attributesDTO.add(new AttributetsDTO("type1","name1"));
-        attributesDTO.add(new AttributetsDTO("type1","name1"));
-        attributesDTO.add(new AttributetsDTO("type1","name1"));
-;//        ArrayList<AttributetsDTO> attributetsDTO = new ArrayList<>();
+
         model.addAttribute("modelDTO", modelDTO);
         model.addAttribute("attributesDTO",attributesDTO);
-//        model.addAttribute("attributetsDTO", attributetsDTO);
-//        HashMap<String, String> languages = new LinkedHashMap<String, String>();
-//        languages.put("Int","Int");
-//        languages.put("Float","Float");
-//        languages.put("String","String");
-//        languages.put("Boolean","Boolean");
-//        model.addAttribute("languages", languages);
+        model.addAttribute("model",models);
+        model.addAttribute("attributes",models.getAttributes());
         return "model_creation";
     }
 

@@ -16,32 +16,36 @@
         <div class="page_name">
             <label>Название Тест-сьюта<@spring.formInput "testSuiteDTO.name"/></label>
         </div>
-        <div class="pages_elements">
-                <label>Тест-кейс 1<input name="tests[0].name"></label>
+        <#list tests as tests>
+            <div class="pages_elements">
+                <label>Тест-кейс ${tests?index + 1 }<input name="tests[${tests?index}].name"></label>
                 <ul>
-                    <li><label>Проверка 1<input name="tests[0].checks[0]"></label></li>
-                    <li><label>Проверка 2<input name="tests[0].checks[1]"></label></li>
-                    <li><label>Проверка 3<input name="tests[0].checks[2]"></label></li>
-                    <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
+                    <#list tests.checks as checks>
+                    <li><label>Проверка ${checks?index+1}<input name="tests[${tests?index}].checks[${checks?index}]"></label></li>
+                    </#list>
+                    <div id="${tests?index}" style="display: flex">
 
-                </ul>
-
-                <label>Тест-кейс 2<input name="tests[1].name"></label>
-
-                <ul>
-                    <li><label>Проверка 1<input name="tests[1].checks[0]"></label></li>
-
-                    <li><label>Проверка 2<input name="tests[1].checks[1]"></label></li>
-
-                    <li><label>Проверка 3<input name="tests[1].checks[2]"></label></li>
-                    <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
+                    </div>
 
                 </ul>
             </div>
-            <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
-            <button>Сгенерировать тест</button>
-        </div>
+
+        </#list>
+
+</div>
+<button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
+<button>Сгенерировать тест</button>
+</div>
+</form>
+<div  style="display: flex">
+    <form style="margin-right: 3px" action="/tests/add" method="post">
+        <input type="submit" value="+">
     </form>
+    <form action="/tests/delete" method="post">
+        <input type="submit" value="-"></form>
+</div>
+
+</div>
 </div>
 </body>
 </html>

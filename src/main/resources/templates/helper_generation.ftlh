@@ -16,20 +16,24 @@
         <div class="page_name">
             <label>Название Helper<@spring.formInput "helperDTO.name"/></label>
         </div>
-        <div class="pages_elements">
-            <div class="page_element">
-                <label>Шаг 1<input name="variable_name"></label>
+        <#list steps as steps>
+            <div class="pages_elements">
+                <div class="page_element">
+                    <label>Шаг ${steps?index+1} <input name="helpers.steps[${steps?index}]"></label>
+                </div>
             </div>
-            <div class="page_element">
-                <label>Шаг 2<input name="variable_name"></label>
-            </div>
-            <div class="page_element">
-                <label>Шаг 3<input name="variable_name"></label>
-            </div>
-            <button id="addNewElement" onclick="addNewWebElementInPage()">+</button>
-            <button>Сгенерировать Helper</button>
-        </div>
+        </#list>
+
+        <button>Сгенерировать Helper</button>
     </form>
+
+        <div style="display: flex">
+            <form style="margin-right: 3px" action="/step/add" method="post">
+                <input type="submit" value="+">
+            </form>
+            <form action="/step/delete" method="post">
+                <input type="submit" value="-"></form>
+        </div>
 </div>
 </body>
 </html>

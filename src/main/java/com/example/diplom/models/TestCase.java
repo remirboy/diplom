@@ -3,6 +3,7 @@ package com.example.diplom.models;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -13,5 +14,5 @@ import java.util.ArrayList;
 @ToString
 public class TestCase {
     private String name;
-    private ArrayList<String> checks;
+    private List<String> checks;
 }

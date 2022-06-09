@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class TestService {
@@ -66,7 +67,7 @@ public class TestService {
 
 
 
-        ArrayList<ArrayList<String>> checks = new ArrayList<ArrayList<String>>();
+        ArrayList<List<String>> checks = new ArrayList<List<String>>();
 
 
 

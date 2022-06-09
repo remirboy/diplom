@@ -4,6 +4,7 @@ import com.example.diplom.models.MainPageObject;
 import com.example.diplom.models.WebElement;
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 
 @Data
@@ -14,8 +15,9 @@ import java.util.ArrayList;
 @Builder
 @ToString
 public class PageObjectDTO {
-
+    @NotEmpty
     private String name;
+    @NotEmpty
     private ArrayList<WebElement> elements;
 
     public static PageObjectDTO from(PageObjectDTO pageObjectDTO) {

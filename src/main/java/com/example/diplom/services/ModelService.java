@@ -20,23 +20,21 @@ public class ModelService {
 
         ArrayList<Attribute> attributes = new ArrayList<Attribute>();
 
-        attributes.add(new Attribute("String","var1"));
+      /*  attributes.add(new Attribute("String","var1"));
         attributes.add(new Attribute("Int","var2"));
-        attributes.add(new Attribute("Boolean","var3"));
+        attributes.add(new Attribute("Boolean","var3"));*/
 
-//        for(AttributetsDTO attributeDTO: attributetsDTO){
-//
-//            Attribute attribute = Attribute.builder()
-//                    .type(attributeDTO.getType())
-//                    .name(attributeDTO.getName())
-//                    .build();
-//
-//            attributes.add(attribute);
-//        }
-
+      /*  for(AttributetsDTO attributeDTO: attributetsDTO){
+            Attribute attribute = Attribute.builder()
+                    .type(attributeDTO.getType())
+                    .name(attributeDTO.getName())
+                    .build();
+            attributes.add(attribute);
+        }
+*/
         Model model = Model.builder()
                 .name(form.getName())
-                .attributes(attributes)
+                .attributes(form.getAttributes())
                 .build();
 
 //        System.out.println(model.toString());
